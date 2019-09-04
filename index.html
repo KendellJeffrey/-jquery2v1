@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Trivia game</h1>
+    <hr>
+    <h2>Questions</h2>
+    <div class="theQuestions">
+        
+    </div>
+    <button onclick="submit()">Submit</button>
+
+    
+
+    <script
+
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+
+    
+
+
+    <script>
+   
+        var trivia = [
+          { question : "What is the best city in the world",
+            options : ["toronto", "new york"],
+            answer : "Asia"
+          },    
+          {
+            question : "What is the largest ocean of the world?",
+            options : ["Atlantic Ocean", "Pacific Ocean", "Indian Ocean", "Southern Ocean"],
+            answer : "Pacific Ocean"    
+          }];
+
+
+
+
+
+for (var i = 0; i < trivia.length; i++){
+  $('.theQuestions').append('<p>' + trivia[i].question + '</p>');
+  
+   for (x = 0; x < trivia[i].options.length; x++){
+     $('.theQuestions').append(
+       "<input type='radio' name='choices_"+i+"' id='radio-one' class='form-radio' value='"+ trivia[i].options[x] +"'>" + "<label>" + trivia[i].options[x] + "</label>"
+     );
+  }
+
+}; 
+
+var score = 0;
+
+
+
+
+function submit() {
+    for (var U =0; U < trivia.length; U++){
+        var radioValue = $("radio[name='choice_"+U+"']:checked").val();
+        if (radioValue == trivia[U].answer){
+            score++;
+            console.log(score);
+        } else {
+            // incorrect ans
+        }
+    };
+
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
